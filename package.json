@@ -1,0 +1,26 @@
+{
+  "name": "huntdora-server",
+  "version": "1.0.0",
+  "description": "a server to provide authentication, api calling, access to storage",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serendatapy/huntdora-server.git"
+  },
+  "author": "Alejandro Rene Valdivia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/serendatapy/huntdora-server/issues"
+  },
+  "homepage": "https://github.com/serendatapy/huntdora-server#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.3",
+    "nodemon": "^2.0.6"
+  }
+}

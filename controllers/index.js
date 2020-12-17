@@ -21,7 +21,7 @@ exports.getUserFavorites = async (req, res) => {
 };
 
 exports.updateUserFavorites = async (req, res) => {
-  console.log('req:',req.params, req.body);  //get user id
+  console.log('req:',req.body);  //get user id
   try {
     const userFav = await users.updateUserFavorites(req.body.email, req.body.favorites) // get back user with favorites
     res.json(userFav); //send back user + favorites
@@ -37,7 +37,6 @@ exports.updateUserFavorites = async (req, res) => {
  ************************/
 
 exports.searchJobs = async (req, res) => {
-  console.log(reedAPI)
   console.log('QUERY:',parseUrl(req));
   try {
     const { data } = await reedAPI.get(`/search?${parseUrl(req).query}`);
@@ -50,7 +49,6 @@ exports.searchJobs = async (req, res) => {
 };
 
 exports.getOneJob = async (req, res) => {
-
   try {
     const { data } = await reedAPI.get(`${parseUrl(req).path}`);
     //should check if it receives a 404 and respond accordingly

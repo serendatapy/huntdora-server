@@ -22,10 +22,14 @@ exports.getAll = async (req, res) => {
 
   try {
     const { data } = await reedAPI.get('/search?keywords=web%20developer&locationName=london&distanceFromLocation=20');
-    console.log("Fetched", data);
+    //console.log("Fetched", data);
     //let dataParsed = JSON.parse(data);
-    const storedJobs = await db.MongoClient.jobs.insert(data);
-    console.log("Stored", storedJobs);
+
+    const storedJobs = await db.conn.collection('jobs').insertOne(data);
+
+    console.log(storedJobs);
+
+
 
     // if (data.results) {
     //   jobs = data.results.map((job) => Job.parse(job))

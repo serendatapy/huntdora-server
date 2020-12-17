@@ -1,7 +1,7 @@
 'use strict';
 
 var parseUrl = require('parseurl');
-const reedAPI = require('./apiService')
+const {reedAPI} = require('./apiService')
 const users = require('../models/users.js');
 
 /**
@@ -37,6 +37,7 @@ exports.updateUserFavorites = async (req, res) => {
  ************************/
 
 exports.searchJobs = async (req, res) => {
+  console.log(reedAPI)
   console.log('QUERY:',parseUrl(req));
   try {
     const { data } = await reedAPI.get(`/search?${parseUrl(req).query}`);

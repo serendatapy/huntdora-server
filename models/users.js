@@ -1,26 +1,29 @@
 const db = require('../models/index');
 console.log(db);
 
-exports.getUser = async (req, res) => {
-  // //let jobs = [];
-  // let query = req.params
-  // console.log('REQUEST:',query);
-  // console.log('Databse is:',db);
+/**
+ * Protected Routes
+ */
 
-
-   try {
-     /**
-      * For each user, there needs to be just 1 saved list, so if a list exists,
-      * that data needs to be updated
-      * else it needs to be created
-      */
-    //const storedJobs = await db.conn.collection('jobs').insertOne(data);
-     //if a call back is used, then await will not work (?)
-     //console.log(storedJobs);
-     res.send('');
-
+exports.getUserFavorites = async (email) => {
+  try {
+    let userFav = await db.conn.collection('users').findOne({email:email});
+    if (!userFav){
+      userFav = await db.conn.collection('users').insertOne({email: email,favorites: []});
+    }
+    return userFav;
    } catch (error) {
-     console.log('Error fetching!', error);
-     res.sendStatus(500);
+     console.log('Error saving!', error);
+   }
+};
+/*
+   favorites is an array of jobs in this case
+*/
+exports.updateUserFavorites = async (email,newFavorites) => {
+  try {
+    const userFav = await db.conn.collection('users').updateOne({email:email}, {$set: {favorites:newFavorites}});
+    return userFav;
+   } catch (error) {
+     console.log('Error Saving!', error);
    }
 };

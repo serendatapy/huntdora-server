@@ -11,7 +11,8 @@ const users = require('../models/users.js');
 exports.getUserFavorites = async (req, res) => {
   console.log('req:',req.params);  //get user id
   try {
-    let email = 'alex@alex.com'; //for demo only
+    let {email} = req.params//'alex@alex.com'; //for demo only
+    console.log('GOT EMAIL:',email);
     const userFav = await users.getUserFavorites(email) // get back user with favorites
     res.json(userFav); //send back user + favorites
   } catch (error) {

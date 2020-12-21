@@ -31,3 +31,5 @@ CLIENT_ORIGIN_URL=(follow instructions on auth0 to setup)
 AUTH0_AUDIENCE=(follow instructions on auth0 to setup)
 AUTH0_DOMAIN=(follow instructions on auth0 to setup)
 ```
+## Room for improvement
+Checkout Github issues to see what needs work

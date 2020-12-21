@@ -1,12 +1,15 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const PORT = 3001;
+const PORT = process.env.SERVER_PORT;
+const clientOrigins = process.env.CLIENT_ORIGIN_URL;
 const cors = require('cors');
 const {router} = require('./router');
 const connectDB = require('./models/');
+const morgan = require('morgan')
 
-app.use(cors());
+app.use(cors({ origin: clientOrigins }));
+app.use(morgan('dev'))
 app.use(express.json());
 app.use(router);
 

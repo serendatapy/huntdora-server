@@ -12,8 +12,6 @@ db.MongoClient.connect(err => {
   if (err) throw new Error(err);
   db.conn = db.MongoClient.db(dbName)
   console.log(`Connected to the database '${dbName}'`);
-  // perform actions on the collection object
-  //client.close();
 });
 
 module.exports = db;

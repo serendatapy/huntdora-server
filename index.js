@@ -6,16 +6,14 @@ const clientOrigins = process.env.CLIENT_ORIGIN_URL;
 const cors = require('cors');
 const {router} = require('./router');
 const connectDB = require('./models/');
-const morgan = require('morgan')
 
 app.use(cors({ origin: clientOrigins }));
-app.use(morgan('dev'))
 app.use(express.json());
 app.use(router);
 
 (async () => {
   await connectDB;
   app.listen(PORT, ()=> {
-    console.log(`Express Server listening On http://localhost:${PORT}`); // eslint-disable-line no-console
+    console.log(`Server Online...`); // eslint-disable-line no-console
   });
 })();

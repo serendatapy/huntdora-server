@@ -1,5 +1,5 @@
 # Huntdora-server
-This server was built to support the [Huntdora Jobsearch frotnend](https://github.com/serendatapy/huntdora). 
+This server was built to support the [Huntdora Jobsearch frontend](https://github.com/serendatapy/huntdora). 
 
 It implements a mongo db to store user's saved jobs, and Auth0 to protect such routes. Furthermore it acts as a proxy for the API.
 

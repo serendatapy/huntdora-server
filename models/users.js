@@ -11,7 +11,7 @@ exports.getUserFavorites = async (email) => {
     }
     return userFav;
    } catch (error) {
-     console.log('Error saving!', error);
+     return new Error('Error Getting Favorites!',error);
    }
 };
 /*
@@ -22,6 +22,6 @@ exports.updateUserFavorites = async (email,newFavorites) => {
     const userFav = await db.conn.collection('users').updateOne({email:email}, {$set: {favorites:newFavorites}});
     return userFav;
    } catch (error) {
-     console.log('Error Saving!', error);
+    return new Error('Error Updating Favorites!',error);
    }
 };
